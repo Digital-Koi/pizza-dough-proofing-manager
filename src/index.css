@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dominos-blue: #0060a9;
+  --color-brand-dominos-red: #e31837;
+  --color-brand-dominos-ice: #e6f0fa;
+  --color-brand-dominos-navy: #080c14;
+  --font-outfit: "Outfit", sans-serif;
+  --font-mono-code: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-dominos-navy);
+    color: #e2e8f0;
+    font-family: var(--font-outfit);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(22, 25, 41, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(22, 25, 41, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Status animations */
+@keyframes pulse-glow-red {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+    border-color: rgba(239, 68, 68, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(239, 68, 68, 0.8);
+    border-color: rgba(239, 68, 68, 1);
+  }
+}
+
+@keyframes pulse-glow-amber {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    border-color: rgba(245, 158, 11, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(245, 158, 11, 0.8);
+    border-color: rgba(245, 158, 11, 1);
+  }
+}
+
+.animate-glow-red {
+  animation: pulse-glow-red 2s infinite ease-in-out;
+}
+
+.animate-glow-amber {
+  animation: pulse-glow-amber 2s infinite ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #12131a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2e3a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3e4357;
+}
+
+/* Print Styles for QR Labels */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Target 2x1 inch label sheet print format */
+  .label-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #000 !important;
+    margin: 5px;
+    padding: 10px;
+    background: white !important;
+    color: black !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
