@@ -15,7 +15,7 @@ export default function DailyRequiredTrays() {
         <table className="w-full border-collapse text-xs text-center">
           <thead>
             <tr className="bg-slate-800/80 border-b-2 border-slate-700 text-slate-200 font-bold">
-              <th className="border-r border-slate-700 py-2 w-1/2">Pizza Size</th>
+              <th className="border-r border-slate-700 py-2 w-1/2">Dough Size</th>
               <th className="py-2 w-1/2">Total Needed for Day (Trays)</th>
             </tr>
           </thead>

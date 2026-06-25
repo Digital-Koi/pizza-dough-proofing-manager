@@ -35,10 +35,10 @@ const getInitialInventory = (): DoughInventory => {
 
 const getInitialDailyTotals = (): Record<PizzaSize, number> => {
   return {
-    '6"': 0,
-    '9"': 0,
+    '13"': 0,
     '11"': 0,
-    '13"': 0
+    '9"': 0,
+    '6"': 0
   };
 };
 

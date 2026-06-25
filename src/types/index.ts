@@ -53,7 +53,7 @@ export const DOUGH_RULES: DoughRule[] = [
   }
 ];
 
-export const PIZZA_SIZES = ['6"', '9"', '11"', '13"'] as const;
+export const PIZZA_SIZES = ['13"', '11"', '9"', '6"'] as const;
 export type PizzaSize = typeof PIZZA_SIZES[number];
 
 export type DoughInventory = Record<PizzaSize, Record<number, number>>;

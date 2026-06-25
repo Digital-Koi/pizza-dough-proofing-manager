@@ -32,7 +32,7 @@ export default function InventoryGrid() {
             </tr>
             {/* Days header row */}
             <tr className="bg-slate-800/80 border-b-2 border-slate-700 text-slate-200 font-bold">
-              <th className="border-r border-slate-700 py-2 w-24">Pizza Size</th>
+              <th className="border-r border-slate-700 py-2 w-24">Dough Size</th>
               {[1, 2, 3, 4, 5, 6].map((age) => (
                 <th key={age} className={`border-r border-slate-700 py-2 w-16 text-base ${ageColors[age as keyof typeof ageColors] || 'text-white'}`}>
                   {age}
