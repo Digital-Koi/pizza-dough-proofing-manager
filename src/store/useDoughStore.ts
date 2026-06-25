@@ -66,12 +66,12 @@ export const useDoughStore = create<DoughState>()(
         Late: 20
       },
       shiftSplits: {
-        Lunch11_13: 50,
-        Lunch13_15: 50,
-        Rush15_17: 50,
-        Rush17_19: 50,
-        Late19_21: 50,
-        Late21_23: 50
+        Lunch11_13: 90,
+        Lunch13_15: 10,
+        Rush15_17: 40,
+        Rush17_19: 60,
+        Late19_21: 70,
+        Late21_23: 30
       },
 
       setDate: (date) => set({
@@ -129,17 +129,17 @@ export const useDoughStore = create<DoughState>()(
           Late: 20
         },
         shiftSplits: {
-          Lunch11_13: 50,
-          Lunch13_15: 50,
-          Rush15_17: 50,
-          Rush17_19: 50,
-          Late19_21: 50,
-          Late21_23: 50
+          Lunch11_13: 90,
+          Lunch13_15: 10,
+          Rush15_17: 40,
+          Rush17_19: 60,
+          Late19_21: 70,
+          Late21_23: 30
         }
       })
     }),
     {
-      name: 'dough-sheets-storage-v2'
+      name: 'dough-sheets-storage-v3'
     }
   )
 );

@@ -1,27 +1,12 @@
-import { useState, useEffect } from 'react';
 import { useDoughStore } from './store/useDoughStore';
 import InventoryGrid from './components/InventoryGrid';
 import DailyRequiredTrays from './components/DailyRequiredTrays';
 import SalesSplitConfig from './components/SalesSplitConfig';
 import ShiftPlansList from './components/ShiftPlansList';
-import { RefreshCcw, Wifi, WifiOff } from 'lucide-react';
+import { RefreshCcw } from 'lucide-react';
 
 export default function App() {
   const { clearAll } = useDoughStore();
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-
-  useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col justify-between selection:bg-red-500 selection:text-white pb-8 font-outfit">
@@ -43,19 +28,11 @@ export default function App() {
               </div>
             </div>
             <h1 className="text-base font-black tracking-wider text-white uppercase font-outfit">
-              DOUGHFLOW
+              AHOGHILL DOUGH
             </h1>
           </div>
 
           <div className="flex items-center space-x-3 text-xs">
-            {/* Online Status */}
-            <div className={`px-2.5 py-1 rounded-lg border flex items-center space-x-1.5 ${
-              isOnline ? 'bg-emerald-950/20 border-emerald-500/20 text-emerald-400' : 'bg-red-950/20 border-red-500/20 text-red-400'
-            }`}>
-              {isOnline ? <Wifi className="h-3 w-3" /> : <WifiOff className="h-3 w-3" />}
-              <span>{isOnline ? 'Online' : 'Offline'}</span>
-            </div>
-
             {/* Print trigger */}
             <button
               onClick={() => window.print()}
@@ -91,9 +68,13 @@ export default function App() {
           <InventoryGrid />
         </div>
 
-        {/* Section 2 & 3: Daily Required Trays and Sales Split Configuration */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        {/* Section 2: Daily Required Trays */}
+        <div className="w-full">
           <DailyRequiredTrays />
+        </div>
+
+        {/* Section 3: Sales Split Configuration */}
+        <div className="w-full">
           <SalesSplitConfig />
         </div>
 
@@ -109,7 +90,7 @@ export default function App() {
 
       {/* Footer details */}
       <footer className="max-w-7xl mx-auto px-4 sm:px-6 w-full mt-10 border-t border-slate-850 pt-4 text-center text-xs text-slate-500 font-semibold">
-        <p>© {new Date().getFullYear()} DoughFlow. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Ahoghill Dough. All rights reserved.</p>
       </footer>
     </div>
   );

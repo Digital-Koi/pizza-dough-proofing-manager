@@ -84,39 +84,89 @@
   background: #3e4357;
 }
 
-/* Print Styles for QR Labels */
+/* Print Styles for Dough Plan Dashboard */
 @media print {
-  body * {
-    visibility: hidden;
-  }
-  
-  .print-area, .print-area * {
-    visibility: visible;
-  }
-  
-  .print-area {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background: white !important;
-    color: black !important;
-  }
-
-  /* Target 2x1 inch label sheet print format */
-  .label-card {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    border: 1px solid #000 !important;
-    margin: 5px;
-    padding: 10px;
-    background: white !important;
-    color: black !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-
+  /* Hide navbar, buttons, and reset panels */
+  header,
+  button,
   .no-print {
     display: none !important;
+  }
+
+  /* Clean high-contrast print layout */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Force white backgrounds and dark text on elements */
+  .bg-\[\#0f111a\],
+  .bg-slate-900,
+  .bg-slate-800\/80,
+  .bg-slate-950\/20,
+  .bg-\[\#0b0c10\]\/90,
+  .bg-\[\#07090e\] {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Set brand headers to high-contrast colors */
+  .bg-\[\#e31837\] {
+    background: #e31837 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .bg-\[\#0060a9\] {
+    background: #0060a9 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .bg-\[\#e6f0fa\] {
+    background: #e6f0fa !important;
+    color: #0060a9 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Force solid black text and borders */
+  .text-slate-100,
+  .text-slate-200,
+  .text-slate-300,
+  .text-slate-355,
+  .text-slate-400,
+  .text-slate-450,
+  .text-white {
+    color: black !important;
+  }
+
+  input, select {
+    color: black !important;
+    background: transparent !important;
+    border-bottom: 1px solid #000 !important;
+  }
+
+  table {
+    border-color: #000 !important;
+  }
+
+  th, td {
+    border-color: #000 !important;
+    color: black !important;
+  }
+
+  /* Avoid splitting tables across pages */
+  .w-full {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
