@@ -3,6 +3,7 @@ import InventoryGrid from './components/InventoryGrid';
 import DailyRequiredTrays from './components/DailyRequiredTrays';
 import SalesSplitConfig from './components/SalesSplitConfig';
 import ShiftPlansList from './components/ShiftPlansList';
+import HourlyBreakdown from './components/HourlyBreakdown';
 import { RefreshCcw } from 'lucide-react';
 
 export default function App() {
@@ -84,6 +85,14 @@ export default function App() {
             Dough Takeout Schedule (Shifts)
           </h3>
           <ShiftPlansList />
+        </div>
+
+        {/* Section 5: Hourly Takeout Breakdown */}
+        <div className="space-y-4 pt-4 border-t border-slate-850">
+          <h3 className="text-sm font-black text-white tracking-wider uppercase">
+            Hourly Takeout Breakdown
+          </h3>
+          <HourlyBreakdown />
         </div>
 
       </main>
