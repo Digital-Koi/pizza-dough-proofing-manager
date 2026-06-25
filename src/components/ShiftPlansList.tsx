@@ -15,15 +15,15 @@ export default function ShiftPlansList() {
         const shiftAlloc = allocationResult[shift.name] || {};
 
         return (
-          <div key={shift.name} className="w-full border-2 border-[#0060a9]/50 bg-[#0f111a] rounded-xl overflow-hidden shadow-md">
+          <div key={shift.name} className="w-full border-2 border-[#e31837]/50 bg-[#0f111a] rounded-xl overflow-hidden shadow-md">
             
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-xs text-center">
                 <thead>
                   {/* Header Row showing the Shift time range on the left and sizes */}
-                  <tr className="bg-[#0060a9] text-white font-black text-sm">
+                  <tr className="bg-[#e31837] text-white font-black text-sm">
                     {/* Shift Time Range on the left */}
-                    <th className="border-r border-slate-750 py-3 w-28 text-[#0060a9] bg-[#e6f0fa] font-black uppercase text-xs">
+                    <th className="border-r border-slate-750 py-3 w-28 text-[#e31837] bg-[#e6f0fa] font-black uppercase text-xs">
                       {shift.timeRange}
                     </th>
                     {PIZZA_SIZES.map((size) => (

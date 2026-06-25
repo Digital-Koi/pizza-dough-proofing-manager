@@ -14,9 +14,9 @@ export default function InventoryGrid() {
   };
 
   return (
-    <div className="w-full border-2 border-[#0060a9]/60 bg-[#0f111a] rounded-xl overflow-hidden shadow-md">
+    <div className="w-full border-2 border-[#e31837]/50 bg-[#0f111a] rounded-xl overflow-hidden shadow-md">
       {/* Title Header */}
-      <div className="bg-[#0060a9] text-white text-center font-black py-2.5 border-b-2 border-[#e31837] text-sm tracking-wider uppercase">
+      <div className="bg-[#e31837] text-white text-center font-black py-2.5 border-b border-[#e31837]/30 text-sm tracking-wider uppercase">
         Dough Available In Store
       </div>
 

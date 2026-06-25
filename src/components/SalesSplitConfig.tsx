@@ -3,8 +3,6 @@ import { calculateTotalSalesSplit } from '../utils/doughMath';
 
 export default function SalesSplitConfig() {
   const {
-    projectedPizzas,
-    setProjectedPizzas,
     salesSplits,
     updateLevel1Split,
     shiftSplits,
@@ -20,23 +18,10 @@ export default function SalesSplitConfig() {
   const sumLateGroup = shiftSplits.LateNight + shiftSplits.Twilight;
 
   return (
-    <div className="w-full border-2 border-[#0060a9]/60 bg-[#0f111a] rounded-xl overflow-hidden shadow-md space-y-4">
+    <div className="w-full border-2 border-[#e31837]/50 bg-[#0f111a] rounded-xl overflow-hidden shadow-md space-y-4">
       {/* Title Header */}
-      <div className="bg-[#0060a9] text-white text-center font-black py-2.5 border-b-2 border-[#e31837] text-sm tracking-wider uppercase flex justify-between px-4 items-center">
+      <div className="bg-[#e31837] text-white text-center font-black py-2.5 border-b border-[#e31837]/30 text-sm tracking-wider uppercase flex justify-center px-4 items-center">
         <span>Sales Split Configurations</span>
-        
-        {/* Total Sales pizzas multiplier */}
-        <div className="flex items-center space-x-2 text-xs">
-          <span className="font-bold text-slate-600">Projected Pizzas:</span>
-          <input
-            type="number"
-            min="10"
-            max="3000"
-            value={projectedPizzas}
-            onChange={(e) => setProjectedPizzas(Math.max(10, Number(e.target.value)))}
-            className="w-16 bg-slate-900 border border-slate-650 text-white rounded text-center py-1 font-black text-sm"
-          />
-        </div>
       </div>
 
       <div className="p-4 space-y-6 text-xs text-center font-outfit">
