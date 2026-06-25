@@ -30,24 +30,15 @@ const getInitialInventory = (): DoughInventory => {
   PIZZA_SIZES.forEach(size => {
     inv[size] = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
   });
-  // Sample data
-  inv['13"'][1] = 14;
-  inv['13"'][4] = 4;
-  inv['11"'][1] = 8;
-  inv['11"'][4] = 5;
-  inv['9"'][1] = 2;
-  inv['9"'][4] = 4;
-  inv['6"'][1] = 6;
-  inv['6"'][4] = 6;
   return inv;
 };
 
 const getInitialDailyTotals = (): Record<PizzaSize, number> => {
   return {
-    '6"': 12,
-    '9"': 6,
-    '11"': 13,
-    '13"': 18
+    '6"': 0,
+    '9"': 0,
+    '11"': 0,
+    '13"': 0
   };
 };
 
