@@ -13,9 +13,9 @@ export default function SalesSplitConfig() {
 
   // Sum checks
   const sumLevel1 = salesSplits.Lunch + salesSplits.Rush + salesSplits.Late;
-  const sumLunchGroup = shiftSplits.Lunch + shiftSplits.Downtime;
-  const sumRushGroup = shiftSplits.EarlyRush + shiftSplits.LateRush;
-  const sumLateGroup = shiftSplits.LateNight + shiftSplits.Twilight;
+  const sumLunchGroup = shiftSplits.Lunch11_13 + shiftSplits.Lunch13_15;
+  const sumRushGroup = shiftSplits.Rush15_17 + shiftSplits.Rush17_19;
+  const sumLateGroup = shiftSplits.Late19_21 + shiftSplits.Late21_23;
 
   return (
     <div className="w-full border-2 border-[#e31837]/50 bg-[#0f111a] rounded-xl overflow-hidden shadow-md space-y-4">
@@ -45,7 +45,7 @@ export default function SalesSplitConfig() {
                     type="number"
                     min="0"
                     max="100"
-                    value={salesSplits.Lunch}
+                    value={salesSplits.Lunch ?? 0}
                     onChange={(e) => updateLevel1Split('Lunch', Math.max(0, Number(e.target.value)))}
                     className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0 text-sm"
                   />
@@ -55,7 +55,7 @@ export default function SalesSplitConfig() {
                     type="number"
                     min="0"
                     max="100"
-                    value={salesSplits.Rush}
+                    value={salesSplits.Rush ?? 0}
                     onChange={(e) => updateLevel1Split('Rush', Math.max(0, Number(e.target.value)))}
                     className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0 text-sm"
                   />
@@ -65,7 +65,7 @@ export default function SalesSplitConfig() {
                     type="number"
                     min="0"
                     max="100"
-                    value={salesSplits.Late}
+                    value={salesSplits.Late ?? 0}
                     onChange={(e) => updateLevel1Split('Late', Math.max(0, Number(e.target.value)))}
                     className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0 text-sm"
                   />
@@ -97,27 +97,27 @@ export default function SalesSplitConfig() {
               <table className="w-full text-slate-200">
                 <tbody>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">10am - 1pm</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">11:00-13:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.Lunch}
-                        onChange={(e) => updateLevel2Split('Lunch', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Lunch11_13 ?? 0}
+                        onChange={(e) => updateLevel2Split('Lunch11_13', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
                   </tr>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">1pm - 3pm</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">13:00-15:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.Downtime}
-                        onChange={(e) => updateLevel2Split('Downtime', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Lunch13_15 ?? 0}
+                        onChange={(e) => updateLevel2Split('Lunch13_15', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
@@ -141,27 +141,27 @@ export default function SalesSplitConfig() {
               <table className="w-full text-slate-200">
                 <tbody>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">3pm - 6pm</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">15:00-17:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.EarlyRush}
-                        onChange={(e) => updateLevel2Split('EarlyRush', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Rush15_17 ?? 0}
+                        onChange={(e) => updateLevel2Split('Rush15_17', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
                   </tr>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">6pm - 10pm</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">17:00-19:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.LateRush}
-                        onChange={(e) => updateLevel2Split('LateRush', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Rush17_19 ?? 0}
+                        onChange={(e) => updateLevel2Split('Rush17_19', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
@@ -185,27 +185,27 @@ export default function SalesSplitConfig() {
               <table className="w-full text-slate-200">
                 <tbody>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">10pm - 1am</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">19:00-21:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.LateNight}
-                        onChange={(e) => updateLevel2Split('LateNight', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Late19_21 ?? 0}
+                        onChange={(e) => updateLevel2Split('Late19_21', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
                   </tr>
                   <tr className="border-b border-slate-800">
-                    <td className="py-2 text-left pl-3 text-slate-400">1am - 5am</td>
+                    <td className="py-2 text-left pl-3 text-slate-400">21:00-23:00</td>
                     <td className="w-16 p-0.5 border-l border-slate-800">
                       <input
                         type="number"
                         min="0"
                         max="100"
-                        value={shiftSplits.Twilight}
-                        onChange={(e) => updateLevel2Split('Twilight', Math.max(0, Number(e.target.value)))}
+                        value={shiftSplits.Late21_23 ?? 0}
+                        onChange={(e) => updateLevel2Split('Late21_23', Math.max(0, Number(e.target.value)))}
                         className="w-full bg-transparent text-white font-extrabold text-center border-none focus:outline-none focus:ring-0"
                       />
                     </td>
@@ -225,13 +225,13 @@ export default function SalesSplitConfig() {
 
         {/* 3. Final Overall Shift split percentage */}
         <div className="space-y-1.5 pt-2 border-t border-slate-800">
-          <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+          <div className="text-[10px] text-slate-450 font-bold uppercase tracking-wider">
             Calculated Total Sales Splits per Shift
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
             {Object.entries(totalSplits).map(([shift, percent]) => (
               <div key={shift} className="bg-slate-900 border border-slate-800 rounded p-1.5">
-                <div className="text-[9px] text-slate-450 font-bold">{shift}</div>
+                <div className="text-[9px] text-slate-450 font-bold leading-tight">{shift}</div>
                 <div className="text-xs text-white font-black">{percent}%</div>
               </div>
             ))}

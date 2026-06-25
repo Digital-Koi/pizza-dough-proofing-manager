@@ -65,12 +65,12 @@ export interface ShiftDetail {
 }
 
 export const SHIFT_DETAILS: ShiftDetail[] = [
-  { name: 'Lunch', timeRange: '10am - 1pm', startTime: '10:00' },
-  { name: 'Downtime', timeRange: '1pm - 3pm', startTime: '13:00' },
-  { name: 'Early Rush', timeRange: '3pm - 6pm', startTime: '15:00' },
-  { name: 'Late Rush', timeRange: '6pm - 10pm', startTime: '18:00' },
-  { name: 'Late Night', timeRange: '10pm - 1am', startTime: '22:00' },
-  { name: 'Twilight', timeRange: '1am - 5am', startTime: '01:00' }
+  { name: 'Lunch (11:00-13:00)', timeRange: '11:00-13:00', startTime: '11:00' },
+  { name: 'Lunch (13:00-15:00)', timeRange: '13:00-15:00', startTime: '13:00' },
+  { name: 'Rush (15:00-17:00)', timeRange: '15:00-17:00', startTime: '15:00' },
+  { name: 'Rush (17:00-19:00)', timeRange: '17:00-19:00', startTime: '17:00' },
+  { name: 'Late (19:00-21:00)', timeRange: '19:00-21:00', startTime: '19:00' },
+  { name: 'Late (21:00-23:00)', timeRange: '21:00-23:00', startTime: '21:00' }
 ];
 
 export type ShiftName = typeof SHIFT_DETAILS[number]['name'];
@@ -83,10 +83,10 @@ export interface Level1Splits {
 }
 
 export interface Level2Splits {
-  Lunch: number; // 90
-  Downtime: number; // 10
-  EarlyRush: number; // 40
-  LateRush: number; // 60
-  LateNight: number; // 70
-  Twilight: number; // 30
+  Lunch11_13: number;
+  Lunch13_15: number;
+  Rush15_17: number;
+  Rush17_19: number;
+  Late19_21: number;
+  Late21_23: number;
 }

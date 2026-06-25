@@ -1,4 +1,4 @@
-import { addMinutes, subMinutes, parse, addDays } from 'date-fns';
+import { addMinutes, subMinutes, parse } from 'date-fns';
 import { DOUGH_RULES, SHIFT_DETAILS, PIZZA_SIZES } from '../types';
 import type { DoughRule, PizzaSize, Level1Splits, Level2Splits, DoughInventory } from '../types';
 
@@ -23,27 +23,20 @@ export function getMaxOutMinutes(age: number): number {
  */
 export function calculateTotalSalesSplit(level1: Level1Splits, level2: Level2Splits): Record<string, number> {
   return {
-    'Lunch': Math.round(level1.Lunch * (level2.Lunch / 100) * 10) / 10,
-    'Downtime': Math.round(level1.Lunch * (level2.Downtime / 100) * 10) / 10,
-    'Early Rush': Math.round(level1.Rush * (level2.EarlyRush / 100) * 10) / 10,
-    'Late Rush': Math.round(level1.Rush * (level2.LateRush / 100) * 10) / 10,
-    'Late Night': Math.round(level1.Late * (level2.LateNight / 100) * 10) / 10,
-    'Twilight': Math.round(level1.Late * (level2.Twilight / 100) * 10) / 10,
+    'Lunch (11:00-13:00)': Math.round(level1.Lunch * (level2.Lunch11_13 / 100) * 10) / 10,
+    'Lunch (13:00-15:00)': Math.round(level1.Lunch * (level2.Lunch13_15 / 100) * 10) / 10,
+    'Rush (15:00-17:00)': Math.round(level1.Rush * (level2.Rush15_17 / 100) * 10) / 10,
+    'Rush (17:00-19:00)': Math.round(level1.Rush * (level2.Rush17_19 / 100) * 10) / 10,
+    'Late (19:00-21:00)': Math.round(level1.Late * (level2.Late19_21 / 100) * 10) / 10,
+    'Late (21:00-23:00)': Math.round(level1.Late * (level2.Late21_23 / 100) * 10) / 10,
   };
 }
 
-export function getShiftReadyTime(shiftName: string, startTime: string, dateStr: string): Date {
-  let baseDate = parse(dateStr, 'yyyy-MM-dd', new Date());
-  
-  // If Twilight (e.g. 1am), it is technically the next calendar day morning
-  if (shiftName === 'Twilight') {
-    baseDate = addDays(baseDate, 1);
-  }
-
+export function getShiftReadyTime(_shiftName: string, startTime: string, dateStr: string): Date {
+  const baseDate = parse(dateStr, 'yyyy-MM-dd', new Date());
   const [hours, minutes] = startTime.split(':');
   const readyTime = new Date(baseDate);
   readyTime.setHours(Number(hours), Number(minutes), 0, 0);
-  
   return readyTime;
 }
 
